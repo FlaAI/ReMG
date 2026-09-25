@@ -1,63 +1,20 @@
-# ReMG: Rethinking, Revealing, and Reducing Real Modality Gap of Audio Language Models under Linguistic-Paralinguistic Trade-Off
+# ReMG
 
-This package contains:
+This repository contains:
 
-- Frozen ReMG **train / validation (construction-dev) / eval** manifests
-- Self-built **R-layer TTS audio** referenced by those manifests
-- Data-construction, Ours training, and local evaluation code
-- Main-table LoRA adapters:
-  - `Data/ckpts/ours_qwen25_omni_7b_v5_brief/epoch_0` (Qwen2.5-Omni-7B)
-  - `Data/ckpts/ours_phi4_mm_v6_textkd/epoch_0` (Phi-4-multimodal)
+- ReMG train / validation / eval manifests
+- Source code for ReMG data construction, fine-tuning, and evaluation
+- LoRA adapters by ReMG fine-tuning:
+  - Qwen2.5-Omni-7B: `ckpts/ours_qwen2_5_omni`
+  - Phi-4-Multimodal: `ckpts/ours_phi4_mm`
 
-It does **not** contain third-party baseline trainers, transfer-benchmark
-harnesses, or vendor API evaluation drivers.
-
-## Anonymity
-
-This release is intended for anonymous peer review. Do not add author names,
-affiliations, acknowledgements, or identifiable cloud credentials before the
-deanonymization stage.
-
-## License note on third-party audio (P layer)
-
-P-layer waveforms come from the **Emotional Speech Database (ESD)**.
-We do **not** redistribute ESD wav files in this package.
-
-1. Obtain ESD under its original license (HF mirror used by this code:
-   `jspaulsen/esd`).
-2. Run `realmg prepare-esd` (or place English wavs so that paths match
-   `Data/raw/esd/wav/en/{speaker}/{emotion}/{id}.wav`).
-3. See `Data/esd_required_paths.txt` for the exact relative paths referenced
-   by the frozen P manifests in this release.
-
-R-layer audio in `Data/audio/r_tts_mass/` is synthesized for this work and is
-included (5875 wav files, about 5.9 GB).
+* The release of raw audio data (5875 files, about 5.9 GB) needs (non-anonymous) HF, thus would be supplemented after the anonymous peer review process.
 
 ## Setup
 
-Python 3.12 and [uv](https://github.com/astral-sh/uv) are required.
-CUDA 12.4 wheels for `torch==2.6.0+cu124` / `torchaudio==2.6.0+cu124` are
-pinned in `pyproject.toml`.
+Python 3.12 and [uv](https://github.com/astral-sh/uv) are required. CUDA 12.4 wheels for `torch==2.6.0+cu124` / `torchaudio==2.6.0+cu124` are pinned in `pyproject.toml`.
 
-```bash
-uv sync
-uv run python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
-# expect: 2.6.0+cu124 True
-```
 
-Copy config templates:
-
-```bash
-cp Data/configs/local_paths.example.toml Data/configs/local_paths.toml
-cp Data/configs/local_server_api.example.toml Data/configs/local_server_api.toml
-# optional teacher text screening via OpenAI-compatible endpoint:
-cp Data/configs/bailian_api.example.toml Data/configs/bailian_api.toml
-```
-
-Download backbone weights locally (examples):
-
-- `Qwen/Qwen2.5-Omni-7B`
-- `microsoft/Phi-4-multimodal-instruct`
 
 ## Data layout
 
