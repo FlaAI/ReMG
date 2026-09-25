@@ -32,34 +32,27 @@ data/
 ```
 
 
-## Train (main table)
+## Fine-tuning command
 
-Omni (`v5_brief`):
+Qwen2.5-Omni-7B:
 
 ```bash
 uv run realmg train-ours \
   --backbone qwen25_omni \
   --model-dir /path/to/Qwen2.5-Omni-7B \
-  --output-dir Data/ckpts/ours_qwen25_omni_7b_v5_brief \
-  --epochs 1
+  --output-dir ckpts/ours_qwen2_5_omni_7b
 ```
 
-Phi-4 (`v6_textkd`):
+Phi-4-Multimodal:
 
 ```bash
 uv run realmg train-ours \
   --backbone phi4_mm \
   --model-dir /path/to/Phi-4-multimodal-instruct \
-  --output-dir Data/ckpts/ours_phi4_mm_v6_textkd \
-  --epochs 1 \
-  --r-train-utterances Data/manifests/r_carved_train_utterances_teacher_correct_phi4_mm.jsonl
+  --output-dir ckpts/ours_phi4_mm \
+  --r-train-utterances data/manifests/r_carved_train_utterances_teacher_correct_phi4_mm.jsonl
 ```
 
-Dry-run data inventory only:
-
-```bash
-uv run realmg train-ours --backbone qwen25_omni --model-dir unused --output-dir unused --dry-run-data
-```
 
 ## Evaluate (local OpenAI-compatible server)
 
