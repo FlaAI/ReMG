@@ -8,7 +8,7 @@ This repository contains:
   - Qwen2.5-Omni-7B: `ckpts/ours_qwen2_5_omni`
   - Phi-4-Multimodal: `ckpts/ours_phi4_mm`
 
-* The release of raw audio data (5875 files, about 5.9 GB) needs (non-anonymous) HF, thus would be supplemented after the anonymous peer review process.
+\* The release of raw audio data (5875 files, about 5.9 GB) needs (non-anonymous) HF, thus would be supplemented after the anonymous peer review process.
 
 ## Setup
 
