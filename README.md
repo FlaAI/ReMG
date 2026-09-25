@@ -1,4 +1,4 @@
-# ReMG (Anonymous Release)
+# **ReMG**: **Re**thinking, **Re**vealing, and **Re**ducing **Re**al Modality Gap of Audio Language Models under Linguistic-Paralinguistic Trade-Off
 
 Anonymous companion code and data for the ICLR submission on
 **query-conditional modality gap** with a 2×2 intervention protocol (ReMG).
