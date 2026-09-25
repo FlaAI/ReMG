@@ -1,0 +1,19 @@
+# Copy to Data/configs/local_server_api.toml (gitignored) on the GPU server.
+# Point base_url at the local vLLM OpenAI endpoint.
+# Prefer --served-model-name matching the HF id so locked slugs stay stable:
+#   microsoft/Phi-4-multimodal-instruct
+#   Qwen/Qwen2-Audio-7B-Instruct
+#   yuantuo666/TARS-Qwen2.5-Omni-7B
+# audio_content_format: input_audio (Phi-4) or audio_url (Qwen2-Audio / TARS / vLLM).
+
+[api]
+base_url = "http://127.0.0.1:8000/v1"
+api_key = "EMPTY"
+model = "yuantuo666/TARS-Qwen2.5-Omni-7B"
+audio_content_format = "audio_url"
+# Long R content answers may take several minutes per query.
+timeout_seconds = 600
+
+[request]
+temperature = 0.0
+max_tokens = 512
