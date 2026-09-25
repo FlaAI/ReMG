@@ -65,6 +65,6 @@ uv run realmg run-p-eval-local-server --protocol paper
 uv run realmg run-r-eval-local-server
 uv run realmg run-r-eval-text-local-server
 uv run realmg score-r-eval --predictions-file data/manifests/<pred>.jsonl
-uv run realmg score-locked-eval --slug <model_slug>
+uv run realmg score-locked-eval --slug <model>
 ```
 
