@@ -10,10 +10,9 @@ This repository contains:
 
 \* The release of raw audio data (5875 files, about 5.9 GB) needs (non-anonymous) HF, thus would be supplemented after the anonymous peer review process.
 
-## Setup
+## Environment
 
-Python 3.12 and [uv](https://github.com/astral-sh/uv) are required. CUDA 12.4 wheels for `torch==2.6.0+cu124` / `torchaudio==2.6.0+cu124` are pinned in `pyproject.toml`.
-
+We conduct all experiments with Python 3.12 and PyTorch 2.6.0 + cu124. More details can be found in `pyproject.toml`. The [uv](https://github.com/astral-sh/uv) are required.
 
 
 ## Data layout
