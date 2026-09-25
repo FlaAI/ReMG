@@ -10,6 +10,7 @@ This repository contains:
 
 \* The release of raw audio data (5875 files, about 5.9 GB) needs (non-anonymous) HF, thus would be supplemented after the anonymous peer review process.
 
+
 ## Environment
 
 We conduct all experiments with Python 3.12 and PyTorch 2.6.0 + cu124. More details can be found in `pyproject.toml`. The [uv](https://github.com/astral-sh/uv) are required.
@@ -18,28 +19,18 @@ We conduct all experiments with Python 3.12 and PyTorch 2.6.0 + cu124. More deta
 ## Data layout
 
 ```
-Data/
-  manifests/     # frozen JSONL + schemas + split lists
-  cards/         # construction summary cards
+data/
+  manifests/                # frozen JSONL + schemas + split lists
+  cards/                    # construction summary cards
   audio/
-    r_tts_mass/  # included R TTS wavs
-    refs/        # VCTK reference clips used by R construction
-  raw/esd/       # NOT shipped; prepare locally (see above)
-  ckpts/         # main-table LoRA adapters (epoch_0 only)
-  configs/       # *.example.toml templates only
-  esd_required_paths.txt
+    tier_r/                 # TTS wavs
+      indextts2_5/
+      cosyvoice2/
+    refs/                   # VCTK reference clips
+      vctk/          
+    esd_required_paths.txt  # ESD index
 ```
 
-Splits:
-
-| Split | Role |
-|-------|------|
-| train | Ours training utterances |
-| construction-dev (validation) | Held-out construction / validation split |
-| eval | Frozen 2×2 paper evaluation |
-
-The main reported runs train for **one epoch** and do not use construction-dev
-for checkpoint selection. The split is still released as part of the dataset.
 
 ## Train (main table)
 
