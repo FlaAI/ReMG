@@ -1,0 +1,47 @@
+{
+  "stage": "tts_mass_wer",
+  "whisper_model": "medium",
+  "single_wer_max_percent": 20.0,
+  "paired_delta_wer_max_percent_train_dev": 10.0,
+  "paired_delta_wer_max_percent_eval": 5.0,
+  "utterance_count": 19780,
+  "pair_count": 9890,
+  "survivor_unit_count": 4847,
+  "survivor_provisional_ref_split_counts": {
+    "construction-dev": 498,
+    "eval": 326,
+    "train": 4023
+  },
+  "engines": {
+    "cosyvoice2": {
+      "utterance_count": 10000,
+      "single_pass_count": 6088,
+      "single_pass_rate": 0.6088,
+      "wer_mean": 19.201384583394418,
+      "pair_count": 5000,
+      "complete_pair_count": 5000,
+      "wer_pass_count": 2682,
+      "wer_pass_rate": 0.5364
+    },
+    "indextts2_5": {
+      "utterance_count": 9780,
+      "single_pass_count": 4862,
+      "single_pass_rate": 0.4971370143149284,
+      "wer_mean": 32.10338213569036,
+      "pair_count": 4890,
+      "complete_pair_count": 4890,
+      "wer_pass_count": 2165,
+      "wer_pass_rate": 0.4427402862985685
+    }
+  },
+  "outputs": {
+    "scores": "Data/cards/r_tts_mass_wer_scores.jsonl",
+    "pairs": "Data/cards/r_tts_mass_wer_pairs.jsonl",
+    "survivors": "Data/manifests/r_tts_mass_wer_survivor_units.jsonl",
+    "report": "Data/cards/r_tts_mass_wer_report.json"
+  },
+  "notes": [
+    "Reference text uses spoken_text when present, else de-LaTeX prompt text.",
+    "Incomplete units (missing one z or failed synthesis) are excluded from pairs."
+  ]
+}

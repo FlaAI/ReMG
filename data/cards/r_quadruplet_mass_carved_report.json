@@ -1,0 +1,66 @@
+{
+  "stage": "r_quadruplets_mass_carved",
+  "pairing_policy": "same_split_speaker_engine_greedy_seed42",
+  "paralinguistic_pair": [
+    "neutral",
+    "happy"
+  ],
+  "unit_count": 2883,
+  "utterance_count": 5766,
+  "quadruplet_count": 1382,
+  "unpaired_unit_count": 119,
+  "splits": {
+    "eval": {
+      "unit_count": 190,
+      "utterance_count": 380,
+      "quadruplet_count": 88,
+      "unpaired_unit_count": 14,
+      "unique_speaker_count_in_quads": 16,
+      "engine_counts_in_quads": {
+        "cosyvoice2": 23,
+        "indextts2_5": 65
+      },
+      "paired_metric_n_content_both_z_correct": 88,
+      "paired_metric_n_para_both_s_correct": 88,
+      "content_query_count_if_eval_expanded": 352,
+      "paralinguistic_query_count_if_eval_expanded": 352
+    },
+    "construction-dev": {
+      "unit_count": 296,
+      "utterance_count": 592,
+      "quadruplet_count": 142,
+      "unpaired_unit_count": 12,
+      "unique_speaker_count_in_quads": 9,
+      "engine_counts_in_quads": {
+        "cosyvoice2": 45,
+        "indextts2_5": 97
+      },
+      "paired_metric_n_content_both_z_correct": 142,
+      "paired_metric_n_para_both_s_correct": 142,
+      "content_query_count_if_eval_expanded": 568,
+      "paralinguistic_query_count_if_eval_expanded": 568
+    },
+    "train": {
+      "unit_count": 2397,
+      "utterance_count": 4794,
+      "quadruplet_count": 1152,
+      "unpaired_unit_count": 93,
+      "unique_speaker_count_in_quads": 84,
+      "engine_counts_in_quads": {
+        "cosyvoice2": 387,
+        "indextts2_5": 765
+      },
+      "paired_metric_n_content_both_z_correct": 1152,
+      "paired_metric_n_para_both_s_correct": 1152,
+      "content_query_count_if_eval_expanded": 4608,
+      "paralinguistic_query_count_if_eval_expanded": 4608
+    }
+  },
+  "eval_capacity_note": "Eval 'quadruplet all-correct' metrics use n=88 quadruplets (352 content queries / same for para).",
+  "outputs": {
+    "utterances": "Data/manifests/r_utterances_mass_carved.jsonl",
+    "quadruplets": "Data/manifests/r_quadruplets_mass_carved.jsonl",
+    "unpaired_units": "Data/manifests/r_quadruplet_unpaired_units.jsonl",
+    "report": "Data/cards/r_quadruplet_mass_carved_report.json"
+  }
+}

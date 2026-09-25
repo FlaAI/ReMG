@@ -1,0 +1,93 @@
+{
+  "stage": "tts_mass_ser_dual_contrastive",
+  "ser_rule": "absolute A (OR backends per z, both z) OR contrastive ((P_h-P_n)_happy - (P_h-P_n)_neutral >= delta on any backend)",
+  "margin_min": 0.2,
+  "contrastive_delta_min": 0.1,
+  "z_to_ser_label": {
+    "happy": "happy",
+    "neutral": "neutral"
+  },
+  "emotion2vec_model": "./Data/models/emotion2vec_plus_large",
+  "speechbrain_model": "./Data/models/speechbrain_emotion_iemocap",
+  "backends": {
+    "emotion2vec": {
+      "utterance_count": 9694,
+      "utterance_ser_pass_count": 5756,
+      "engines": {
+        "cosyvoice2": {
+          "utterance_count": 5364,
+          "utterance_ser_pass_count": 2655,
+          "utterance_ser_pass_rate": 0.4949664429530201,
+          "label_match_rate": 0.49739000745712153,
+          "margin_pass_rate": 0.9932885906040269
+        },
+        "indextts2_5": {
+          "utterance_count": 4330,
+          "utterance_ser_pass_count": 3101,
+          "utterance_ser_pass_rate": 0.7161662817551963,
+          "label_match_rate": 0.723094688221709,
+          "margin_pass_rate": 0.9789838337182448
+        }
+      }
+    },
+    "speechbrain_iemocap": {
+      "utterance_count": 9694,
+      "utterance_ser_pass_count": 3779,
+      "engines": {
+        "cosyvoice2": {
+          "utterance_count": 5364,
+          "utterance_ser_pass_count": 1979,
+          "utterance_ser_pass_rate": 0.36894108873974646,
+          "label_match_rate": 0.37639821029082776,
+          "margin_pass_rate": 0.9696122296793438
+        },
+        "indextts2_5": {
+          "utterance_count": 4330,
+          "utterance_ser_pass_count": 1800,
+          "utterance_ser_pass_rate": 0.41570438799076215,
+          "label_match_rate": 0.4237875288683603,
+          "margin_pass_rate": 0.9732101616628176
+        }
+      }
+    }
+  },
+  "pair_count": 4847,
+  "survivor_unit_count": 2883,
+  "survivor_pass_reason_counts": {
+    "absolute": 1373,
+    "contrastive": 1510
+  },
+  "survivor_provisional_ref_split_counts": {
+    "construction-dev": 296,
+    "eval": 190,
+    "train": 2397
+  },
+  "engines": {
+    "cosyvoice2": {
+      "pair_count": 2682,
+      "ser_pass_count": 973,
+      "ser_pass_rate": 0.3627889634601044,
+      "absolute_pair_pass_count": 158,
+      "contrastive_pass_count": 958
+    },
+    "indextts2_5": {
+      "pair_count": 2165,
+      "ser_pass_count": 1910,
+      "ser_pass_rate": 0.8822170900692841,
+      "absolute_pair_pass_count": 1215,
+      "contrastive_pass_count": 1880
+    }
+  },
+  "outputs": {
+    "emotion2vec_scores": "Data/cards/r_tts_mass_ser_scores.jsonl",
+    "speechbrain_scores": "Data/cards/r_tts_mass_ser_speechbrain_scores.jsonl",
+    "pairs": "Data/cards/r_tts_mass_ser_pairs.jsonl",
+    "survivors": "Data/manifests/r_tts_mass_ser_survivor_units.jsonl",
+    "report": "Data/cards/r_tts_mass_ser_report.json"
+  },
+  "notes": [
+    "Input units are WER survivors only.",
+    "Absolute pass: predicted label == constructed z and top1-top2 >= 0.2.",
+    "SpeechBrain IEMOCAP weights loaded via transformers (not foreign_class)."
+  ]
+}

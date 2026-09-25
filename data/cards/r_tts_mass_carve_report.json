@@ -1,0 +1,58 @@
+{
+  "stage": "tts_mass_carve_a",
+  "policy": "promote_provisional_ref_split",
+  "unit_count": 2883,
+  "job_count": 5766,
+  "splits": {
+    "eval": {
+      "unit_count": 190,
+      "unique_content_count": 190,
+      "unique_speaker_count": 16,
+      "engine_counts": {
+        "cosyvoice2": 53,
+        "indextts2_5": 137
+      },
+      "ser_pass_reason_counts": {
+        "absolute": 94,
+        "contrastive": 96
+      }
+    },
+    "construction-dev": {
+      "unit_count": 296,
+      "unique_content_count": 296,
+      "unique_speaker_count": 9,
+      "engine_counts": {
+        "cosyvoice2": 97,
+        "indextts2_5": 199
+      },
+      "ser_pass_reason_counts": {
+        "absolute": 145,
+        "contrastive": 151
+      }
+    },
+    "train": {
+      "unit_count": 2397,
+      "unique_content_count": 2397,
+      "unique_speaker_count": 84,
+      "engine_counts": {
+        "cosyvoice2": 823,
+        "indextts2_5": 1574
+      },
+      "ser_pass_reason_counts": {
+        "absolute": 1134,
+        "contrastive": 1263
+      }
+    }
+  },
+  "outputs": {
+    "units": "Data/manifests/r_tts_mass_carved_units.jsonl",
+    "jobs": "Data/manifests/r_tts_mass_carved_jobs.jsonl",
+    "report": "Data/cards/r_tts_mass_carve_report.json",
+    "ser_survivors_source": "Data/manifests/r_tts_mass_ser_survivor_units.jsonl",
+    "vctk_split_source": "Data/cards/r_vctk_reference_split.json"
+  },
+  "notes": [
+    "Official split equals provisional_ref_split from the mass draw.",
+    "No reshuffle: speaker pools already disjoint via frozen VCTK split."
+  ]
+}

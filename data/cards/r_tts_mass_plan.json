@@ -1,0 +1,93 @@
+{
+  "stage": "tts_mass_draw",
+  "text_count": 10000,
+  "unit_count": 10000,
+  "job_count": 20000,
+  "text_seed": 45,
+  "assign_seed": 46,
+  "engines": [
+    "indextts2_5",
+    "cosyvoice2"
+  ],
+  "z_labels": [
+    "neutral",
+    "happy"
+  ],
+  "engine_counts": {
+    "cosyvoice2": 5000,
+    "indextts2_5": 5000
+  },
+  "provisional_ref_split_counts": {
+    "construction-dev": 1000,
+    "eval": 750,
+    "train": 8250
+  },
+  "source_counts": {
+    "natural_reasoning": 10000
+  },
+  "yield_estimate": {
+    "gate_pair_pass_rate_assumed": 0.4,
+    "expected_surviving_units_before_ser": 4000,
+    "eval_target": 300,
+    "eval_text_quota": 750,
+    "expected_eval_survivors_before_ser": 300,
+    "notes": [
+      "Assumes both engines remain after human forced-choice.",
+      "SER attrition is not included yet."
+    ]
+  },
+  "control_defaults": {
+    "indextts2_5": {
+      "emo_order": [
+        "happy",
+        "angry",
+        "sad",
+        "afraid",
+        "disgusted",
+        "melancholic",
+        "surprised",
+        "calm"
+      ],
+      "emo_vectors": {
+        "happy": [
+          0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "neutral": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.8
+        ]
+      }
+    },
+    "cosyvoice2": {
+      "happy": "Speak in a happy tone.<|endofprompt|>",
+      "neutral": "Speak in a calm, neutral tone.<|endofprompt|>"
+    }
+  },
+  "outputs": {
+    "units": "Data/manifests/r_tts_mass_units.jsonl",
+    "jobs": "Data/manifests/r_tts_mass_jobs.jsonl",
+    "audio_root": "Data/audio/r_tts_mass",
+    "report": "Data/cards/r_tts_mass_plan.json"
+  },
+  "downscale": {
+    "from_unit_count": 20000,
+    "to_unit_count": 10000,
+    "subsample_seed": 47,
+    "backup_units": "Data/manifests/r_tts_mass_units_20k.jsonl",
+    "backup_jobs": "Data/manifests/r_tts_mass_jobs_20k.jsonl",
+    "preserved_done_jobs": 5198
+  }
+}

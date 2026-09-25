@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "quadruplet_id",
+    "layer",
+    "split",
+    "content_pair",
+    "paralinguistic_pair",
+    "utterance_ids"
+  ],
+  "properties": {
+    "quadruplet_id": {
+      "type": "string"
+    },
+    "layer": {
+      "enum": [
+        "R",
+        "P"
+      ]
+    },
+    "split": {
+      "enum": [
+        "construction-dev",
+        "eval"
+      ]
+    },
+    "content_pair": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "paralinguistic_pair": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "utterance_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "metadata": {
+      "type": "object"
+    }
+  }
+}

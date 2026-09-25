@@ -1,0 +1,49 @@
+{
+  "input_manifest": "Data/manifests/r_teacher_text_examples.jsonl",
+  "predictions_manifest": "Data/manifests/r_teacher_text_predictions.jsonl",
+  "output_manifest": "Data/manifests/r_text_candidates_teacher_correct.jsonl",
+  "queried_count": 2397,
+  "new_kept_count": 1055,
+  "merged_kept_count": 1055,
+  "retention_rate": 0.4401335002085941,
+  "kept_by_source": {
+    "natural_reasoning": 1055
+  },
+  "rejection_counts": {
+    "teacher_text_incorrect": 1342
+  },
+  "verifier_counts": {
+    "general_verifier": 2397
+  },
+  "frozen_verifiers": {
+    "natural_reasoning": "TIGER-Lab/general-verifier",
+    "tulu3_open_qa": "qa_metrics.pedant.PEDANT (VoiceBench SD-QA path)",
+    "tulu3_mcq": "VoiceBench mcq option extraction"
+  },
+  "notes": [
+    "Do not reuse this kept set for non-Qwen backbones.",
+    "Eval/dev carved pool is unchanged."
+  ],
+  "stage": "teacher_text_carved_train_filter",
+  "merge": {
+    "unique_s_queried": 2397,
+    "unique_s_correct": 1055,
+    "train_units_before": 2397,
+    "train_units_after": 1055,
+    "train_utterances_after": 2110,
+    "retention_rate_units": 0.4401335002085941,
+    "engine_counts_after": {
+      "cosyvoice2": 343,
+      "indextts2_5": 712
+    },
+    "source_counts_after": {
+      "natural_reasoning": 1055
+    }
+  },
+  "outputs": {
+    "teacher_correct": "Data/manifests/r_carved_train_teacher_correct_qwen25_omni_7b.jsonl",
+    "train_units": "Data/manifests/r_carved_train_units_teacher_correct_qwen25_omni_7b.jsonl",
+    "train_utterances": "Data/manifests/r_carved_train_utterances_teacher_correct_qwen25_omni_7b.jsonl",
+    "predictions": "Data/manifests/r_teacher_text_carved_train_predictions_qwen25_omni_7b.jsonl"
+  }
+}

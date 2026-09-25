@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "utterance_id",
+    "layer",
+    "source_name",
+    "split",
+    "content_id",
+    "paralinguistic_label",
+    "audio_path",
+    "transcript"
+  ],
+  "properties": {
+    "utterance_id": {
+      "type": "string"
+    },
+    "layer": {
+      "enum": [
+        "R",
+        "P"
+      ]
+    },
+    "source_name": {
+      "type": "string"
+    },
+    "split": {
+      "enum": [
+        "train",
+        "construction-dev",
+        "eval"
+      ]
+    },
+    "content_id": {
+      "type": "string"
+    },
+    "paralinguistic_label": {
+      "type": "string"
+    },
+    "audio_path": {
+      "type": "string"
+    },
+    "transcript": {
+      "type": "string"
+    },
+    "speaker_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reference_speaker_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tts_engine": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "metadata": {
+      "type": "object"
+    }
+  }
+}

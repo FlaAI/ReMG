@@ -1,0 +1,13 @@
+{
+  "protocol": "unseen_content",
+  "whisper_model": "medium",
+  "single_wer_max_percent": 10.0,
+  "delta_wer_max_train_dev_percent": 5.0,
+  "delta_wer_max_eval_percent": 3.0,
+  "utterance_count_before": 17500,
+  "utterance_count_after": 12701,
+  "utterance_rejected_count": 4799,
+  "quadruplet_count_before": 1727,
+  "quadruplet_count_after": 852,
+  "quadruplet_rejected_count": 875
+}

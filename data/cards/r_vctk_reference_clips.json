@@ -1,0 +1,29 @@
+{
+  "source": "VCTK-Corpus-0.92",
+  "whisper_model": "medium",
+  "wer_max_percent": 5.0,
+  "duration_window_seconds": [
+    3.0,
+    5.0
+  ],
+  "max_native_candidates_to_score": 30,
+  "max_fallback_candidates_to_score": 15,
+  "trim_seconds": 4.0,
+  "mic": "mic1",
+  "selected_speaker_count": 109,
+  "missing_speaker_count": 0,
+  "missing_speakers": [],
+  "split_counts": {
+    "construction-dev": 9,
+    "train": 84,
+    "eval": 16
+  },
+  "selection_mode_counts": {
+    "native_duration": 109
+  },
+  "wer_summary": {
+    "min": 0.0,
+    "max": 0.0,
+    "mean": 0.0
+  }
+}

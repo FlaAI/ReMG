@@ -1,0 +1,50 @@
+[project]
+name = "realmg"
+version = "0.1.0"
+description = "ReMG"
+readme = "README.md"
+authors = [
+    { name = "Anonymous Authors" }
+]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "datasets[audio]>=4.0.0",
+    "funasr>=1.4.3",
+    "huggingface-hub>=0.34.0",
+    "jiwer>=4.0.0",
+    "langdetect>=1.0.9",
+    "nltk>=3.9.1",
+    "openai>=1.52.0",
+    "openai-whisper>=20240930",
+    "peft==0.20.0",
+    "qa-metrics>=0.2.42",
+    "torch==2.6.0",
+    "torchaudio==2.6.0",
+    "transformers>=4.40.0",
+]
+
+[project.scripts]
+realmg = "realmg.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+override-dependencies = [
+    "torch==2.6.0",
+    "torchaudio==2.6.0",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu124", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchaudio = [
+  { index = "pytorch-cu124", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]

@@ -1,0 +1,19 @@
+{
+  "protocol": "unseen_content",
+  "text_emotion_model": "j-hartmann/emotion-english-distilroberta-base",
+  "leak_labels": [
+    "anger",
+    "joy",
+    "sadness",
+    "surprise"
+  ],
+  "non_neutral_confidence_min": 0.9,
+  "unique_script_count": 350,
+  "leaked_script_count": 24,
+  "utterance_count_before": 12701,
+  "utterance_count_after": 11883,
+  "utterance_rejected_count": 818,
+  "quadruplet_count_before": 852,
+  "quadruplet_count_after": 746,
+  "quadruplet_rejected_count": 106
+}

@@ -1,0 +1,13 @@
+.venv/
+dist/
+build/
+*.egg-info/
+__pycache__/
+*.pyc
+.cursor/
+
+data/raw/
+data/models/
+data/configs/*_api.toml
+data/configs/local_paths.toml
+!data/configs/*.example.toml

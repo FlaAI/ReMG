@@ -1,0 +1,89 @@
+{
+  "stage": "tts_gate_pilot",
+  "text_count": 20,
+  "speaker_count": 4,
+  "engine_count": 2,
+  "z_count": 2,
+  "job_count": 320,
+  "expected_job_count": 320,
+  "text_seed": 43,
+  "speaker_seed": 42,
+  "engines": [
+    "indextts2_5",
+    "cosyvoice2"
+  ],
+  "z_labels": [
+    "neutral",
+    "happy"
+  ],
+  "speakers": [
+    {
+      "speaker_id": "p305",
+      "gender": "female",
+      "reference_wav_path": "Data/audio/refs/vctk/p305.wav"
+    },
+    {
+      "speaker_id": "p288",
+      "gender": "female",
+      "reference_wav_path": "Data/audio/refs/vctk/p288.wav"
+    },
+    {
+      "speaker_id": "p273",
+      "gender": "male",
+      "reference_wav_path": "Data/audio/refs/vctk/p273.wav"
+    },
+    {
+      "speaker_id": "p274",
+      "gender": "male",
+      "reference_wav_path": "Data/audio/refs/vctk/p274.wav"
+    }
+  ],
+  "source_counts": {
+    "natural_reasoning": 19,
+    "tulu3": 1
+  },
+  "pass_criteria": {
+    "human_forced_choice_min": 0.8,
+    "single_utterance_wer_max_percent": 10.0,
+    "paired_z_wer_abs_diff_train_dev_max_percent": 5.0
+  },
+  "control_defaults": {
+    "indextts2_5": {
+      "happy": [
+        0.8,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "neutral": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.8
+      ]
+    },
+    "cosyvoice2": {
+      "happy": "Speak in a happy tone.<|endofprompt|>",
+      "neutral": "Speak in a calm, neutral tone.<|endofprompt|>"
+    }
+  },
+  "outputs": {
+    "texts": "Data/manifests/r_tts_gate_texts.jsonl",
+    "speakers": "Data/manifests/r_tts_gate_speakers.jsonl",
+    "jobs": "Data/manifests/r_tts_gate_jobs.jsonl",
+    "listen_sheet": "Data/cards/r_tts_gate_listen_sheet.jsonl",
+    "audio_root": "Data/audio/r_tts_gate"
+  },
+  "notes": [
+    "Refs are train-only (2F+2M). Eval and construction-dev refs are unused.",
+    "Run `realmg run-r-tts-gate` after this prepare step to synthesize wavs."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "layer": "R",
+  "split": "eval",
+  "quadruplet_count": 88,
+  "audio_count": 352,
+  "query_count": 704,
+  "content_query_count": 352,
+  "paralinguistic_query_count": 352,
+  "speaker_count": 16,
+  "engine_count": 2,
+  "paired_metric_n": 88,
+  "content_prompt_style": "audio_is_the_question_empty_text_stem",
+  "paralinguistic_prompt_style": "MMSU Emotion Recognition wording; two-way closed labels",
+  "paralinguistic_prompt_source": "mmsu_emotion_recognition",
+  "emotion_labels": [
+    "neutral",
+    "happy"
+  ],
+  "note": "Paired 'both-z / both-s correct' metrics are defined over n=88 eval quadruplets."
+}

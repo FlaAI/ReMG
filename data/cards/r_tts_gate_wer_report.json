@@ -1,0 +1,43 @@
+{
+  "stage": "tts_gate_pilot_wer",
+  "whisper_model": "medium",
+  "single_wer_max_percent": 10.0,
+  "paired_delta_wer_max_percent": 5.0,
+  "utterance_count": 320,
+  "pair_count": 160,
+  "engines": {
+    "cosyvoice2": {
+      "utterance_count": 160,
+      "single_pass_count": 74,
+      "single_pass_rate": 0.4625,
+      "wer_mean": 16.158723673365962,
+      "wer_max": 69.44444444444444,
+      "pair_count": 80,
+      "paired_pass_count": 60,
+      "paired_pass_rate": 0.75,
+      "gate_pass_count": 32,
+      "gate_pass_rate": 0.4
+    },
+    "indextts2_5": {
+      "utterance_count": 160,
+      "single_pass_count": 72,
+      "single_pass_rate": 0.45,
+      "wer_mean": 21.318461599956567,
+      "wer_max": 90.9090909090909,
+      "pair_count": 80,
+      "paired_pass_count": 55,
+      "paired_pass_rate": 0.6875,
+      "gate_pass_count": 32,
+      "gate_pass_rate": 0.4
+    }
+  },
+  "outputs": {
+    "scores": "Data/cards/r_tts_gate_wer_scores.jsonl",
+    "pairs": "Data/cards/r_tts_gate_wer_pairs.jsonl",
+    "report": "Data/cards/r_tts_gate_wer_report.json"
+  },
+  "notes": [
+    "Reference text uses de-LaTeX spoken form (spoken_text if present).",
+    "Human forced-choice is scored separately on listen trials."
+  ]
+}
