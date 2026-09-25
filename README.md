@@ -29,10 +29,12 @@ data/
     refs/                   # VCTK reference clips
       vctk/          
     esd_required_paths.txt  # ESD index
+  configs/
+    local_server_api.toml   # Config example
 ```
 
 
-## Fine-tuning command
+## Fine-tuning
 
 Qwen2.5-Omni-7B:
 
@@ -54,36 +56,15 @@ uv run realmg train-ours \
 ```
 
 
-## Evaluate (local OpenAI-compatible server)
+## Evaluation 
 
-Serve a backbone (optionally with the released LoRA merged or loaded), point
-`Data/configs/local_server_api.toml` at the endpoint, then:
+Serve a backbone (optionally with the released LoRA merged or loaded), point `data/configs/local_server_api.toml` at the endpoint, then:
 
 ```bash
 uv run realmg run-p-eval-local-server --protocol paper
 uv run realmg run-r-eval-local-server
 uv run realmg run-r-eval-text-local-server
-uv run realmg score-r-eval --predictions-file Data/manifests/<pred>.jsonl
+uv run realmg score-r-eval --predictions-file data/manifests/<pred>.jsonl
 uv run realmg score-locked-eval --slug <model_slug>
 ```
 
-## Reconstruct data (optional)
-
-Frozen manifests and R audio are enough to train and evaluate.
-To rebuild from upstream corpora, use the `prepare-*` / `run-*` / `score-*`
-construction commands (`realmg -h`). You will need ESD, VCTK, text sources,
-TTS engines, ASR/SER models, and sufficient disk/GPU. Downstream teacher-text
-screening expects an OpenAI-compatible endpoint configured via
-`bailian_api.toml` (template only; no keys are shipped).
-
-## What is intentionally omitted
-
-- ESD waveforms (obtain yourself; path list provided)
-- Baseline trainers and checkpoints beyond the two main-table LoRAs
-- Transfer evaluations on external benchmarks
-- Vendor cloud evaluation drivers and secret configs
-- Intermediate draft text corpora and prediction dumps
-
-## Citation
-
-Anonymous during review. Citation will be added after deanonymization.
